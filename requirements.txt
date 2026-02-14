@@ -1,0 +1,8 @@
+ginvdist
+sympy
+memory_profiler
+numpy
+pandas
+matplotlib
+
+
