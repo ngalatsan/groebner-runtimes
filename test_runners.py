@@ -1,20 +1,11 @@
-# Абстрактный класс TestRunner и конкретные реализации
-
 import time
 from memory_profiler import memory_usage
 from abc import ABC, abstractmethod
-
 from config import ORDER_MAPPING
-from utils import load_json_data
 
-# Для GInv (импортируй только если нужно; предполагаем, что установлен)
-try:
-    from ginv.monom import Monom
-    from ginv.poly import Poly
-    from ginv.gb import GB
-except ImportError:
-    print("GInv не установлен — пропуск runners для GInv")
-
+from ginv.monom import Monom
+from ginv.poly import Poly
+from ginv.gb import GB
 from sympy import groebner, symbols, ZZ
 
 
@@ -29,7 +20,7 @@ class TestRunner(ABC):
             raise ValueError(f"Неподдерживаемый порядок '{order}' для {method_name}")
 
     @abstractmethod
-    def run_test(self, test_name, verbose=True):
+    def run_test(self, test_name, data, verbose=True):
         """Запускает тест и возвращает dict с результатами"""
         pass
 
@@ -45,28 +36,32 @@ class GinvRunner(TestRunner):
         Monom.zero = Monom(0 for _ in Monom.variables)
         Monom.cmp = getattr(Monom, self.internal_order)
         Poly.cmp = Monom.cmp
+        local_dict = {}
         for i, var in enumerate(variables):
             p = Poly()
             p.append([Monom([0 if j != i else 1 for j in range(len(variables))]), 1])
-            globals()[var] = p
+            local_dict[var] = p
+        return local_dict
 
-    def run_test(self, test_name, verbose=True):
-        data = load_json_data(test_name)
+    def run_test(self, test_name, data, verbose=True):
         dimension = data.get("dimension", None)
         variables = data["variables"]
         equations = data["equations"]
 
-        self.init_ginv(variables)
-        eqs = [eval(eq.replace('^', '**')) for eq in equations]
+        local_dict = self.init_ginv(variables)
+        eqs = [eval(eq.replace('^', '**'), {"__builtins__": {}}, local_dict) for eq in equations]
 
         G = GB()
 
         def compute():
             G.algorithm2(eqs)
+            return G
 
-        start_time = time.time()
-        mem_log = memory_usage(compute, interval=0.1)
-        elapsed = time.time() - start_time
+        start_time = time.perf_counter()
+        mem_log, basis = memory_usage(compute, interval=0.1, retval=True)
+        elapsed = time.perf_counter() - start_time
+
+        basis_size = len(basis) if basis else None
 
         result = {
             'test': test_name,
@@ -78,6 +73,7 @@ class GinvRunner(TestRunner):
             'crit2': int(G.crit2) if hasattr(G, 'crit2') else None,
             'num_vars': len(variables),
             'num_equations': len(eqs),
+            'basis_size': basis_size,
             'avr_memory': round(sum(mem_log) / len(mem_log), 2) if mem_log else 0.0,
             'max_memory': round(max(mem_log), 2) if mem_log else 0.0,
             'mem_per_sec': round(max(mem_log) / elapsed, 2) if elapsed > 0 else 0.0
@@ -85,7 +81,7 @@ class GinvRunner(TestRunner):
 
         if verbose:
             print(
-                f"  {test_name} ({self.method_name}, {self.order}): {elapsed:.3f} с, память {result['max_memory']:.1f} МБ")
+                f" + {test_name} ({self.method_name}, {self.order}): {elapsed:.3f} с, {result['max_memory']:.1f} Mб, базис: {basis_size} полиномов")
 
         return result
 
@@ -94,8 +90,7 @@ class SympyRunner(TestRunner):
     def __init__(self, order):
         super().__init__('sympy', order)
 
-    def run_test(self, test_name, verbose=True):
-        data = load_json_data(test_name)
+    def run_test(self, test_name, data, verbose=True):
         dimension = data.get("dimension", None)
         variables = data["variables"]
         equations = data["equations"]
@@ -107,12 +102,11 @@ class SympyRunner(TestRunner):
         def compute_groebner():
             return groebner(eqs, *sym_vars, order=self.internal_order, domain=ZZ)
 
-        start_time = time.time()
-        mem_log = memory_usage(compute_groebner, interval=0.1)
-        elapsed = time.time() - start_time
+        start_time = time.perf_counter()
+        mem_log, basis = memory_usage(compute_groebner, interval=0.1, retval=True)
+        elapsed = time.perf_counter() - start_time
 
-        basis = compute_groebner()
-        basis_size = len(basis)
+        basis_size = len(basis) if basis else None
 
         result = {
             'test': test_name,
@@ -130,6 +124,6 @@ class SympyRunner(TestRunner):
 
         if verbose:
             print(
-                f"  {test_name} ({self.method_name}, {self.order}): {elapsed:.3f} с, память {result['max_memory']:.1f} МБ, базис: {basis_size} полиномов")
+                f" + {test_name} ({self.method_name}, {self.order}): {elapsed:.3f} с, {result['max_memory']:.1f} Мб, базис: {basis_size} полиномов")
 
         return result

@@ -20,6 +20,8 @@ TOO_LONG = [
     'hf855', 'hcyclic8', 'hcyclic7', 'hawes4', 'hairer4'
 ]
 
+TEST_VERY_QUICK = ['boon', 'chandra5', 'caprasse', 'issac97', 'hcyclic5']
+
 # Соответствие порядков для разных библиотек
 ORDER_MAPPING = {
     'ginv': {
