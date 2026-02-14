@@ -2,6 +2,7 @@ import time
 from memory_profiler import memory_usage
 from abc import ABC, abstractmethod
 from config import ORDER_MAPPING
+from concurrent.futures import TimeoutError
 
 from ginv.monom import Monom
 from ginv.poly import Poly
@@ -20,7 +21,7 @@ class TestRunner(ABC):
             raise ValueError(f"Неподдерживаемый порядок '{order}' для {method_name}")
 
     @abstractmethod
-    def run_test(self, test_name, data, verbose=True):
+    def run_test(self, test_name, data, verbose=True, measure_memory=True):
         """Запускает тест и возвращает dict с результатами"""
         pass
 
@@ -30,7 +31,6 @@ class GinvRunner(TestRunner):
         super().__init__('ginv', order)
 
     def init_ginv(self, variables):
-        """Инициализация GInv"""
         Monom.init(variables)
         Monom.variables = variables.copy()
         Monom.zero = Monom(0 for _ in Monom.variables)
@@ -43,7 +43,7 @@ class GinvRunner(TestRunner):
             local_dict[var] = p
         return local_dict
 
-    def run_test(self, test_name, data, verbose=True):
+    def run_test(self, test_name, data, verbose=True, measure_memory=True):
         dimension = data.get("dimension", None)
         variables = data["variables"]
         equations = data["equations"]
@@ -58,7 +58,13 @@ class GinvRunner(TestRunner):
             return G
 
         start_time = time.perf_counter()
-        mem_log, basis = memory_usage(compute, interval=0.1, retval=True)
+
+        if measure_memory:
+            mem_log, basis = memory_usage(compute, interval=0.1, retval=True)
+        else:
+            basis = compute()
+            mem_log = []
+
         elapsed = time.perf_counter() - start_time
 
         basis_size = len(basis) if basis else None
@@ -76,12 +82,14 @@ class GinvRunner(TestRunner):
             'basis_size': basis_size,
             'avr_memory': round(sum(mem_log) / len(mem_log), 2) if mem_log else 0.0,
             'max_memory': round(max(mem_log), 2) if mem_log else 0.0,
-            'mem_per_sec': round(max(mem_log) / elapsed, 2) if elapsed > 0 else 0.0
+            'mem_per_sec': round(max(mem_log) / elapsed, 2) if elapsed > 0 and mem_log else 0.0,
+            'mode': 'memory' if measure_memory else 'clean'
         }
 
         if verbose:
+            mem_str = f", {result['max_memory']:.1f} Мб" if measure_memory else ""
             print(
-                f" + {test_name} ({self.method_name}, {self.order}): {elapsed:.3f} с, {result['max_memory']:.1f} Mб, базис: {basis_size} полиномов")
+                f" + {test_name} ({self.method_name}, {self.order}): {elapsed:.3f} с{mem_str}, базис: {basis_size} полиномов")
 
         return result
 
@@ -90,7 +98,7 @@ class SympyRunner(TestRunner):
     def __init__(self, order):
         super().__init__('sympy', order)
 
-    def run_test(self, test_name, data, verbose=True):
+    def run_test(self, test_name, data, verbose=True, measure_memory=True):
         dimension = data.get("dimension", None)
         variables = data["variables"]
         equations = data["equations"]
@@ -103,7 +111,13 @@ class SympyRunner(TestRunner):
             return groebner(eqs, *sym_vars, order=self.internal_order, domain=ZZ)
 
         start_time = time.perf_counter()
-        mem_log, basis = memory_usage(compute_groebner, interval=0.1, retval=True)
+
+        if measure_memory:
+            mem_log, basis = memory_usage(compute_groebner, interval=0.1, retval=True)
+        else:
+            basis = compute_groebner()
+            mem_log = []
+
         elapsed = time.perf_counter() - start_time
 
         basis_size = len(basis) if basis else None
@@ -119,11 +133,13 @@ class SympyRunner(TestRunner):
             'basis_size': basis_size,
             'avr_memory': round(sum(mem_log) / len(mem_log), 2) if mem_log else 0.0,
             'max_memory': round(max(mem_log), 2) if mem_log else 0.0,
-            'mem_per_sec': round(max(mem_log) / elapsed, 2) if elapsed > 0 else 0.0
+            'mem_per_sec': round(max(mem_log) / elapsed, 2) if elapsed > 0 and mem_log else 0.0,
+            'mode': 'memory' if measure_memory else 'clean'
         }
 
         if verbose:
+            mem_str = f", {result['max_memory']:.1f} Мб" if measure_memory else ""
             print(
-                f" + {test_name} ({self.method_name}, {self.order}): {elapsed:.3f} с, {result['max_memory']:.1f} Мб, базис: {basis_size} полиномов")
+                f" + {test_name} ({self.method_name}, {self.order}): {elapsed:.3f} с{mem_str}, базис: {basis_size} полиномов")
 
         return result

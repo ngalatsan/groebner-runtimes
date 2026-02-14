@@ -1,23 +1,16 @@
-from config import TEST_VERY_QUICK, RESULTS_DIR
+from config import VERY_QUICK, QUICK, MEDIUM, RESULTS_DIR
 from utils import save_result, save_summary, load_json_data
 from test_runners import GinvRunner, SympyRunner
 import os
 
 # Конфигурация
-METHODS = ['ginv', 'sympy']  # Методы
-CATEGORIES = TEST_VERY_QUICK  # Тесты
-ORDERS = ['deglex']  # Порядки
+METHODS = ['ginv', 'sympy']
+CATEGORIES = VERY_QUICK + QUICK + MEDIUM
+ORDERS = ['deglex']
 VERBOSE = True
 SAVE_CSV = True
+MEASURE_MEMORY = False
 
-"""
-TO DO
-
-MEASURE_MEMORY = True  # Замерять ли память или чистое время
-"""
-
-
-# Соответствие методов к классам runners
 RUNNER_CLASSES = {
     'ginv': GinvRunner,
     'sympy': SympyRunner
@@ -43,7 +36,7 @@ def run_all_tests():
                     print(f"Пропуск (уже есть): {result_filename}")
                     continue
 
-                print(f"\nЗапуск: {test_name} ({method})")
+                print(f"\nЗапуск: {test_name} ({method}, {order})")
 
                 runner_class = RUNNER_CLASSES.get(method)
                 if not runner_class:
@@ -52,7 +45,12 @@ def run_all_tests():
 
                 runner = runner_class(order)
                 try:
-                    result = runner.run_test(test_name, test_data[test_name], verbose=VERBOSE)
+                    result = runner.run_test(
+                        test_name,
+                        test_data[test_name],
+                        verbose=VERBOSE,
+                        measure_memory=MEASURE_MEMORY
+                    )
                 except Exception as e:
                     print(f"Ошибка в {test_name} ({method}): {e}")
                     continue
