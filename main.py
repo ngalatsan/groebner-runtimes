@@ -1,15 +1,17 @@
 from config import VERY_QUICK, QUICK, MEDIUM, RESULTS_DIR
 from utils import *
 from test_runners import GinvRunner, SympyRunner
+from timeout_utils import run_with_timeout
 import os
 
 # Конфигурация
 METHODS = ['ginv', 'sympy']
-CATEGORIES = VERY_QUICK + QUICK
+CATEGORIES = VERY_QUICK + QUICK + MEDIUM
 ORDERS = ['deglex']
 VERBOSE = True
 SAVE_CSV = True
 MEASURE_MEMORY = False
+TIMEOUT = 600  # секунд (None без таймаута)
 
 RUNNER_CLASSES = {
     'ginv': GinvRunner,
@@ -45,23 +47,52 @@ def run_all_tests():
 
                 runner = runner_class(order)
                 try:
-                    result = runner.run_test(
-                        test_name,
-                        test_data[test_name],
-                        verbose=VERBOSE,
-                        measure_memory=MEASURE_MEMORY
-                    )
+                    if TIMEOUT:
+                        result = run_with_timeout(
+                            runner.run_test,
+                            TIMEOUT,
+                            test_name,
+                            test_data[test_name],
+                            verbose=VERBOSE,
+                            measure_memory=MEASURE_MEMORY
+                        )
+                    else:
+                        result = runner.run_test(
+                            test_name,
+                            test_data[test_name],
+                            verbose=VERBOSE,
+                            measure_memory=MEASURE_MEMORY
+                        )
                 except Exception as e:
                     print(f"Ошибка в {test_name} ({method}): {e}")
                     continue
 
+                # обработка таймаута
+                if result and result.get("status") == "timeout":
+                    print(f" - таймаут: {test_name} ({method}, {order}) > {TIMEOUT} c")
+                    result.update({
+                        'test': test_name,
+                        'method': method,
+                        'order': order,
+                        'dimension': test_data[test_name].get("dimension"),
+                        'num_vars': len(test_data[test_name]["variables"]),
+                        'num_equations': len(test_data[test_name]["equations"]),
+                        'basis_size': None,
+                        'avr_memory': None,
+                        'max_memory': None,
+                        'mem_per_sec': None,
+                        'mode': 'memory' if MEASURE_MEMORY else 'clean'
+                    })
+                if result and "status" not in result:
+                    result["status"] = "ok"
+
                 if result:
                     results.append(result)
                     save_result(result, test_name, method, order)
-    all_results = load_all_results() + results  # сохранение в csv всех результатов (в том числе ранее вычисленных)
 
+    all_results = load_all_results() + results  # сохранение в csv всех результатов (в том числе ранее вычисленных)
     if SAVE_CSV:
-        save_summary(all_results) # results для только новых результатов
+        save_summary(all_results) # заменить на results для только новых результатов
 
     print("\nВсе тесты завершены")
     return results

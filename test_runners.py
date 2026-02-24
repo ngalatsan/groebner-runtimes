@@ -62,7 +62,7 @@ class GinvRunner(TestRunner):
             mem_log, basis = memory_usage(compute, interval=0.1, retval=True)
         else:
             basis = compute()
-            mem_log = []
+            mem_log = None
 
         elapsed = time.perf_counter() - start_time
 

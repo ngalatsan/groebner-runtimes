@@ -7,9 +7,9 @@ VERY_QUICK = [
 ]
 
 QUICK = [
-    'chemequs', 'vermeer', 'camera1s', 'reimer4', 'redeco7', 'tangents',        # 'cassou'
+    'chemequs', 'vermeer', 'camera1s', 'reimer4', 'redeco7', 'tangents',  'cassou',
     'butcher', 'eco7', 'cohn2', 'dessin1', 'des18_3', 'hcyclic6', 'noon5',
-    'katsura6', 'cyclic6', 'butcher8' #extcyc5 redcyc6 cpdm5
+    'katsura6', 'cyclic6', 'butcher8', 'extcyc5', 'redcyc6', 'cpdm5'
 ]
 
 MEDIUM = ['noon6', 'reimer5', 'kotsireas', 'assur44']

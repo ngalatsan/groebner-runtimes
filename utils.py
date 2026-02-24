@@ -42,4 +42,4 @@ def save_summary(results, summary_path='summary_table.csv'):
 
     df = pd.DataFrame(results)
     df.to_csv(summary_path, sep=';', index=False, decimal=',', float_format='%.3f')
-    print(f"Сводная таблица сохранена успешно: {summary_path}")
+    print(f"\nСводная таблица сохранена успешно: {summary_path}")
