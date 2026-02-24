@@ -18,6 +18,21 @@ def save_result(result, test_name, method, order, results_dir=RESULTS_DIR):
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(result, f, ensure_ascii=False)
 
+def load_all_results(results_dir=RESULTS_DIR):
+    """Загружает существующие результаты в папке"""
+    all_results = []
+    if not os.path.isdir(results_dir):
+        return all_results
+    for filename in os.listdir(results_dir):
+        if filename.endswith('.json'):
+            path = os.path.join(results_dir, filename)
+            try:
+                with open(path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    all_results.append(data)
+            except Exception as e:
+                print(f"Ошибка чтения {filename}: {e}")
+    return all_results
 
 def save_summary(results, summary_path='summary_table.csv'):
     """Сохраняет все результаты в CSV, перезаписывая существующий файл"""
@@ -27,4 +42,4 @@ def save_summary(results, summary_path='summary_table.csv'):
 
     df = pd.DataFrame(results)
     df.to_csv(summary_path, sep=';', index=False, decimal=',', float_format='%.3f')
-    print(f"Сводная таблица сохранена (перезаписана): {summary_path}")
+    print(f"Сводная таблица сохранена успешно: {summary_path}")

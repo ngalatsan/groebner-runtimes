@@ -1,11 +1,11 @@
 from config import VERY_QUICK, QUICK, MEDIUM, RESULTS_DIR
-from utils import save_result, save_summary, load_json_data
+from utils import *
 from test_runners import GinvRunner, SympyRunner
 import os
 
 # Конфигурация
 METHODS = ['ginv', 'sympy']
-CATEGORIES = VERY_QUICK + QUICK + MEDIUM
+CATEGORIES = VERY_QUICK + QUICK
 ORDERS = ['deglex']
 VERBOSE = True
 SAVE_CSV = True
@@ -58,13 +58,14 @@ def run_all_tests():
                 if result:
                     results.append(result)
                     save_result(result, test_name, method, order)
+    all_results = load_all_results() + results  # сохранение в csv всех результатов (в том числе ранее вычисленных)
 
     if SAVE_CSV:
-        save_summary(results)
+        save_summary(all_results) # results для только новых результатов
 
     print("\nВсе тесты завершены")
     return results
 
 
 if __name__ == '__main__':
-    run_all_tests()
+    results = run_all_tests()

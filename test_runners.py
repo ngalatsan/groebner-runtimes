@@ -2,7 +2,6 @@ import time
 from memory_profiler import memory_usage
 from abc import ABC, abstractmethod
 from config import ORDER_MAPPING
-from concurrent.futures import TimeoutError
 
 from ginv.monom import Monom
 from ginv.poly import Poly
