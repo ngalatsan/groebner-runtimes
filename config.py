@@ -1,26 +1,51 @@
 # Категории уравнений для тестов
 
 VERY_QUICK = [
-    'quadfor2', 'sparse5', 'hunecke', 'solotarev', 'chandra4', 'quadgrid', 'lorentz',
-    'liu', 'hemmecke', 'boon', 'chandra5', 'caprasse', 'issac97', 'hcyclic5',
-    'redcyc5', 'cyclic5', 'extcyc4', 'chemequ', 'uteshev_bikker', 'chandra6', 'geneig'
+    'mickey', 'quadfor2', 'sparse5', 'lanconelli', 'test', 'hunecke',
+    'solotarev', 'chandra4', 'conform1', 'lorentz', 'quadgrid', 'hairer1',
+    'hemmecke', 'liu', 'puma', 's9_1', 'boon', 'heart', 'reif', 'caprasse',
+    'ku10', 'chandra5', 'issac97', 'comb3000', 'comb3000s', 'morgenstern',
+    'hcyclic5', 'rose', 'redcyc5', 'cyclic5', 'extcyc4', 'redeco7',
+    'uteshev_bikker', 'chemequ', 'geneig', 'chandra6', 'lichtblau',
+    'vermeer', 'chemequs', 'f633', 'camera1s', 'tangents', 'matrix',
+    'eco7', 'cassou'
 ]
 
 QUICK = [
-    'chemequs', 'vermeer', 'camera1s', 'reimer4', 'redeco7', 'tangents',  'cassou',
-    'butcher', 'eco7', 'cohn2', 'dessin1', 'des18_3', 'hcyclic6', 'noon5',
-    'katsura6', 'cyclic6', 'butcher8', 'extcyc5', 'redcyc6', 'cpdm5'
+    'rabmo', 'butcher', 'redeco8', 'des18_3', 'cohn2', 'dessin1',
+    'des22_24', 'reimer4', 'hcyclic6', 'kinema', 'dessin2', 'noon5',
+    'katsura6', 'speer', 'redcyc6'
 ]
 
-MEDIUM = ['noon6', 'reimer5', 'kotsireas', 'assur44']
+MEDIUM = [
+    'cyclic6', 'butcher8', 'eco8', 'redeco9', 'kin1', 'd1',
+    'benchmark_D1', 'extcyc5', 'cpdm5', 'katsura7', 'reimer5',
+    'rbpl24', 'fabrice24'
+]
+
+LONG = [
+    'jcf26', 'filter9', 'hietarinta1', 'hf744', 'noon6',
+    'benchmark_i1', 'rbpl', 'i1', 'cohn3', 'assur44', 'f744',
+    'eco9', 'kotsireas', 'redeco10', 'chemkin', 'katsura8'
+]
 
 TOO_LONG = [
-    'reimer8', 'reimer7', 'redeco12', 'redcyc8', 'redcyc7', 'noon9', 'noon8', 'mckay',
-    'mckay.gls50mod', 'katsura10', 'ilias13', 'ilias12', 'ilias_k_2', 'ilias_k_3',
-    'hf855', 'hcyclic8', 'hcyclic7', 'hawes4', 'hairer4'
+    'reimer6', 'hairer2', 'redeco11', 'pinchon1', 'el44',
+    'eco10', 'ilias_k_3', 'hairer3', 'dl', 'katsura9', 'noon7'
 ]
 
-TEST_VERY_QUICK = ['boon', 'chandra5', 'caprasse', 'issac97', 'hcyclic5']
+ALL = ['mickey', 'quadfor2', 'sparse5', 'lanconelli', 'test', 'hunecke', 'solotarev',
+       'chandra4', 'conform1', 'lorentz', 'quadgrid', 'hairer1', 'hemmecke', 'liu',
+       'puma', 's9_1', 'boon', 'heart', 'reif', 'caprasse', 'ku10', 'chandra5', 'issac97',
+       'comb3000', 'comb3000s', 'morgenstern', 'hcyclic5', 'rose', 'redcyc5', 'cyclic5',
+       'extcyc4', 'redeco7', 'uteshev_bikker', 'chemequ', 'geneig', 'chandra6', 'lichtblau',
+       'vermeer', 'chemequs', 'f633', 'camera1s', 'tangents', 'matrix', 'eco7', 'cassou', 'rabmo',
+       'butcher', 'redeco8', 'des18_3', 'cohn2', 'dessin1', 'des22_24', 'reimer4', 'hcyclic6',
+       'kinema', 'dessin2', 'noon5', 'katsura6', 'speer', 'redcyc6', 'cyclic6', 'butcher8', 'eco8',
+       'redeco9', 'kin1', 'd1', 'benchmark_D1', 'extcyc5', 'cpdm5', 'katsura7', 'reimer5', 'rbpl24',
+       'fabrice24', 'jcf26', 'filter9', 'hietarinta1', 'hf744', 'noon6', 'benchmark_i1', 'rbpl', 'i1',
+       'cohn3', 'assur44', 'f744', 'eco9', 'kotsireas', 'redeco10', 'chemkin', 'katsura8', 'reimer6',
+       'hairer2', 'redeco11', 'pinchon1', 'el44', 'eco10', 'ilias_k_3', 'hairer3', 'dl', 'katsura9', 'noon7']
 
 # Соответствие порядков для разных библиотек
 ORDER_MAPPING = {

@@ -1,4 +1,4 @@
-from config import VERY_QUICK, QUICK, MEDIUM, RESULTS_DIR
+from config import *
 from utils import *
 from test_runners import GinvRunner, SympyRunner
 from timeout_utils import run_with_timeout
@@ -6,7 +6,7 @@ import os
 
 # Конфигурация
 METHODS = ['ginv', 'sympy']
-CATEGORIES = VERY_QUICK + QUICK + MEDIUM
+CATEGORIES = ALL
 ORDERS = ['deglex']
 VERBOSE = True
 SAVE_CSV = True
