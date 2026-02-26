@@ -19,10 +19,11 @@ def save_result(result, test_name, method, order, results_dir=RESULTS_DIR):
         json.dump(result, f, ensure_ascii=False)
 
 def load_all_results(results_dir=RESULTS_DIR):
-    """Загружает существующие результаты в папке"""
+    """Загружает все результаты из папки"""
     all_results = []
     if not os.path.isdir(results_dir):
         return all_results
+
     for filename in os.listdir(results_dir):
         if filename.endswith('.json'):
             path = os.path.join(results_dir, filename)
@@ -34,12 +35,30 @@ def load_all_results(results_dir=RESULTS_DIR):
                 print(f"Ошибка чтения {filename}: {e}")
     return all_results
 
+
 def save_summary(results, summary_path='summary_table.csv'):
-    """Сохраняет все результаты в CSV, перезаписывая существующий файл"""
+    """Сохраняет результаты в CSV"""
     if not results:
         print("Нет результатов для сохранения")
         return
 
     df = pd.DataFrame(results)
-    df.to_csv(summary_path, sep=';', index=False, decimal=',', float_format='%.3f')
-    print(f"\nСводная таблица сохранена успешно: {summary_path}")
+
+    # Приводим метрики памяти к None в режиме clean
+    clean_mask = df['mode'] == 'clean'
+    for col in ['avr_memory', 'max_memory', 'mem_per_sec']:
+        if col in df.columns:
+            df.loc[clean_mask, col] = None
+
+    # Желаемый порядок столбцов
+    desired_order = [
+        'test', 'method', 'order', 'time', 'dimension',
+        'num_vars', 'num_equations', 'basis_size',
+        'avr_memory', 'max_memory', 'mem_per_sec',
+        'crit1', 'crit2', 'error', 'mode', 'status'
+    ]
+
+    existing_cols = [col for col in desired_order if col in df.columns]
+    df = df[existing_cols]
+    df.to_csv(summary_path, sep=';', index=False, decimal=',', float_format='%.4f')
+    print(f"\nСводная таблица сохранена: {summary_path}")
