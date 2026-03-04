@@ -1,0 +1,1 @@
+{"status": "timeout", "time": 3600.051, "test": "hairer3", "method": "ginv", "order": "deglex", "dimension": 14, "num_vars": 14, "num_equations": 16, "basis_size": null, "avr_memory": null, "max_memory": null, "mem_per_sec": null, "mode": "clean"}

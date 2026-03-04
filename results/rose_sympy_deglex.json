@@ -1,0 +1,1 @@
+{"test": "rose", "method": "sympy", "order": "deglex", "time": 0.185, "dimension": 3, "num_vars": 3, "num_equations": 3, "basis_size": 18, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

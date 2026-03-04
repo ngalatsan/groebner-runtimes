@@ -1,0 +1,1 @@
+{"status": "timeout", "time": 3600.085, "test": "pinchon1", "method": "sympy", "order": "deglex", "dimension": 29, "num_vars": 29, "num_equations": 29, "basis_size": null, "avr_memory": null, "max_memory": null, "mem_per_sec": null, "mode": "clean"}

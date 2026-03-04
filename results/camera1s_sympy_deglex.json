@@ -1,0 +1,1 @@
+{"test": "camera1s", "method": "sympy", "order": "deglex", "time": 2.217, "dimension": 6, "num_vars": 6, "num_equations": 6, "basis_size": 31, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

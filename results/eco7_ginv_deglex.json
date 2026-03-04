@@ -1,0 +1,1 @@
+{"test": "eco7", "method": "ginv", "order": "deglex", "time": 15.997, "dimension": 7, "crit1": 286, "crit2": 230, "num_vars": 7, "num_equations": 0, "basis_size": 32, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

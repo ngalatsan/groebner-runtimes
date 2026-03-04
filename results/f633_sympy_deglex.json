@@ -1,0 +1,1 @@
+{"test": "f633", "method": "sympy", "order": "deglex", "time": 3.752, "dimension": 10, "num_vars": 10, "num_equations": 9, "basis_size": 49, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

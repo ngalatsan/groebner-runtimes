@@ -1,0 +1,1 @@
+{"test": "katsura8", "method": "ginv", "order": "deglex", "time": 1632.48, "dimension": 9, "crit1": 2237, "crit2": 7212, "num_vars": 9, "num_equations": 0, "basis_size": 143, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

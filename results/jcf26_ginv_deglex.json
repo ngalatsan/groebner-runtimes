@@ -1,0 +1,1 @@
+{"test": "jcf26", "method": "ginv", "order": "deglex", "time": 534.507, "dimension": 34, "crit1": 3732, "crit2": 1020, "num_vars": 34, "num_equations": 0, "basis_size": 79, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

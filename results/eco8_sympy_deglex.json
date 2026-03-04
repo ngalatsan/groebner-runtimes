@@ -1,0 +1,1 @@
+{"test": "eco8", "method": "sympy", "order": "deglex", "time": 16.757, "dimension": 8, "num_vars": 8, "num_equations": 8, "basis_size": 64, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

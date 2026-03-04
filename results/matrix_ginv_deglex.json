@@ -1,0 +1,1 @@
+{"test": "matrix", "method": "ginv", "order": "deglex", "time": 19.354, "dimension": 16, "crit1": 4951, "crit2": 6576, "num_vars": 16, "num_equations": 0, "basis_size": 161, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

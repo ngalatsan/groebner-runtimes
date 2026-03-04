@@ -1,0 +1,1 @@
+{"test": "fabrice24", "method": "ginv", "order": "deglex", "time": 369.872, "dimension": 9, "crit1": 1257, "crit2": 1024, "num_vars": 9, "num_equations": 0, "basis_size": 54, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

@@ -1,0 +1,1 @@
+{"test": "hietarinta1", "method": "ginv", "order": "deglex", "time": 380.091, "dimension": 10, "crit1": 4161, "crit2": 3606, "num_vars": 10, "num_equations": 0, "basis_size": 51, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

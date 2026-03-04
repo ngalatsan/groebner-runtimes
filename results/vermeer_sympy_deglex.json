@@ -1,0 +1,1 @@
+{"test": "vermeer", "method": "sympy", "order": "deglex", "time": 0.277, "dimension": 5, "num_vars": 5, "num_equations": 4, "basis_size": 20, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

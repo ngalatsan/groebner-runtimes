@@ -1,0 +1,1 @@
+{"status": "timeout", "time": 3600.093, "test": "rbpl", "method": "sympy", "order": "deglex", "dimension": 8, "num_vars": 8, "num_equations": 6, "basis_size": null, "avr_memory": null, "max_memory": null, "mem_per_sec": null, "mode": "clean"}

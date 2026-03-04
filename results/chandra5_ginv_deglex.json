@@ -1,0 +1,1 @@
+{"test": "chandra5", "method": "ginv", "order": "deglex", "time": 0.233, "dimension": 5, "crit1": 59, "crit2": 42, "num_vars": 5, "num_equations": 0, "basis_size": 16, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

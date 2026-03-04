@@ -1,0 +1,1 @@
+{"test": "d1", "method": "ginv", "order": "deglex", "time": 155.161, "dimension": 12, "crit1": 2484, "crit2": 2205, "num_vars": 12, "num_equations": 0, "basis_size": 86, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

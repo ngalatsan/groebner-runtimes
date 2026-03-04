@@ -1,0 +1,1 @@
+{"test": "boon", "method": "sympy", "order": "deglex", "time": 0.035, "dimension": 6, "num_vars": 6, "num_equations": 6, "basis_size": 11, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

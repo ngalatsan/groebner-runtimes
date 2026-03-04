@@ -1,0 +1,1 @@
+{"status": "timeout", "time": 3600.036, "test": "benchmark_i1", "method": "sympy", "order": "deglex", "dimension": 10, "num_vars": 10, "num_equations": 10, "basis_size": null, "avr_memory": null, "max_memory": null, "mem_per_sec": null, "mode": "clean"}

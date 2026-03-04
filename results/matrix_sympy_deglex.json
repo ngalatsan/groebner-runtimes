@@ -1,0 +1,1 @@
+{"test": "matrix", "method": "sympy", "order": "deglex", "time": 26.471, "dimension": 16, "num_vars": 16, "num_equations": 16, "basis_size": 134, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

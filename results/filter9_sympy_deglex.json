@@ -1,0 +1,1 @@
+{"status": "timeout", "time": 3600.019, "test": "filter9", "method": "sympy", "order": "deglex", "dimension": 9, "num_vars": 9, "num_equations": 9, "basis_size": null, "avr_memory": null, "max_memory": null, "mem_per_sec": null, "mode": "clean"}

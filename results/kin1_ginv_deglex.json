@@ -1,0 +1,1 @@
+{"test": "kin1", "method": "ginv", "order": "deglex", "time": 116.818, "dimension": 12, "crit1": 2022, "crit2": 1734, "num_vars": 12, "num_equations": 0, "basis_size": 88, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

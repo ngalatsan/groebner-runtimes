@@ -1,0 +1,1 @@
+{"test": "puma", "method": "ginv", "order": "deglex", "time": 0.149, "dimension": 8, "crit1": 95, "crit2": 5, "num_vars": 8, "num_equations": 0, "basis_size": 16, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

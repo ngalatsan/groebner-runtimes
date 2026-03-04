@@ -1,0 +1,1 @@
+{"test": "tangents", "method": "ginv", "order": "deglex", "time": 3.388, "dimension": 6, "crit1": 226, "crit2": 116, "num_vars": 6, "num_equations": 0, "basis_size": 25, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

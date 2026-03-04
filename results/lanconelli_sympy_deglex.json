@@ -1,0 +1,1 @@
+{"test": "lanconelli", "method": "sympy", "order": "deglex", "time": 0.054, "dimension": 11, "num_vars": 11, "num_equations": 4, "basis_size": 6, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

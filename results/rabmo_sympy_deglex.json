@@ -1,0 +1,1 @@
+{"test": "rabmo", "method": "sympy", "order": "deglex", "time": 329.069, "dimension": 9, "num_vars": 9, "num_equations": 9, "basis_size": 21, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

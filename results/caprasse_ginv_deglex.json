@@ -1,0 +1,1 @@
+{"test": "caprasse", "method": "ginv", "order": "deglex", "time": 0.247, "dimension": 4, "crit1": 65, "crit2": 183, "num_vars": 4, "num_equations": 0, "basis_size": 26, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

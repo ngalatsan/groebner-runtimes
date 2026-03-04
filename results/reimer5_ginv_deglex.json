@@ -1,0 +1,1 @@
+{"test": "reimer5", "method": "ginv", "order": "deglex", "time": 100.696, "dimension": 5, "crit1": 196, "crit2": 1011, "num_vars": 5, "num_equations": 0, "basis_size": 38, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

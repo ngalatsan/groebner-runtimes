@@ -1,0 +1,1 @@
+{"test": "noon5", "method": "ginv", "order": "deglex", "time": 35.438, "dimension": 5, "crit1": 304, "crit2": 1963, "num_vars": 5, "num_equations": 0, "basis_size": 72, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

@@ -1,0 +1,1 @@
+{"test": "butcher8", "method": "sympy", "order": "deglex", "time": 29.88, "dimension": 8, "num_vars": 8, "num_equations": 8, "basis_size": 54, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

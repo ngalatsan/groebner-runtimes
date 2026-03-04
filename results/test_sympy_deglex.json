@@ -1,0 +1,1 @@
+{"test": "test", "method": "sympy", "order": "deglex", "time": 0.007, "dimension": 3, "num_vars": 3, "num_equations": 4, "basis_size": 5, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

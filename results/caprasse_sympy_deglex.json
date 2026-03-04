@@ -1,0 +1,1 @@
+{"test": "caprasse", "method": "sympy", "order": "deglex", "time": 0.102, "dimension": 4, "num_vars": 4, "num_equations": 4, "basis_size": 27, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

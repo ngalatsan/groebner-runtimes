@@ -1,0 +1,1 @@
+{"status": "timeout", "time": 3600.028, "test": "cohn3", "method": "sympy", "order": "deglex", "dimension": 4, "num_vars": 4, "num_equations": 4, "basis_size": null, "avr_memory": null, "max_memory": null, "mem_per_sec": null, "mode": "clean"}

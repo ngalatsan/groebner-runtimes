@@ -1,0 +1,1 @@
+{"test": "conform1", "method": "ginv", "order": "deglex", "time": 0.057, "dimension": 3, "crit1": 9, "crit2": 31, "num_vars": 3, "num_equations": 0, "basis_size": 10, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

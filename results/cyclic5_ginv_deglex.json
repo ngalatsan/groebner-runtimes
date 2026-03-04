@@ -1,0 +1,1 @@
+{"test": "cyclic5", "method": "ginv", "order": "deglex", "time": 0.689, "dimension": 5, "crit1": 113, "crit2": 378, "num_vars": 5, "num_equations": 0, "basis_size": 20, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

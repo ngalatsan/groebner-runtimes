@@ -1,0 +1,1 @@
+{"test": "hcyclic6", "method": "ginv", "order": "deglex", "time": 26.57, "dimension": 7, "crit1": 273, "crit2": 4053, "num_vars": 7, "num_equations": 0, "basis_size": 97, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

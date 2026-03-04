@@ -1,0 +1,1 @@
+{"test": "filter9", "method": "ginv", "order": "deglex", "time": 378.398, "dimension": 9, "crit1": 6411, "crit2": 16461, "num_vars": 9, "num_equations": 0, "basis_size": 153, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

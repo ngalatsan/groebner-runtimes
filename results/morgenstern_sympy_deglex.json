@@ -1,0 +1,1 @@
+{"test": "morgenstern", "method": "sympy", "order": "deglex", "time": 0.095, "dimension": 9, "num_vars": 9, "num_equations": 5, "basis_size": 18, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

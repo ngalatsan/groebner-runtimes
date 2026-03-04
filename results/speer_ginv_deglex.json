@@ -1,0 +1,1 @@
+{"test": "speer", "method": "ginv", "order": "deglex", "time": 83.085, "dimension": 6, "crit1": 104, "crit2": 1732, "num_vars": 6, "num_equations": 0, "basis_size": 44, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

@@ -1,0 +1,1 @@
+{"test": "redcyc6", "method": "ginv", "order": "deglex", "time": 24.425, "dimension": 7, "crit1": 384, "crit2": 1726, "num_vars": 7, "num_equations": 0, "basis_size": 21, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

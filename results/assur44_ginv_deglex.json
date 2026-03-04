@@ -1,0 +1,1 @@
+{"test": "assur44", "method": "ginv", "order": "deglex", "time": 1101.779, "dimension": 8, "crit1": 1919, "crit2": 3352, "num_vars": 8, "num_equations": 0, "basis_size": 87, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

@@ -1,0 +1,1 @@
+{"test": "butcher", "method": "ginv", "order": "deglex", "time": 9.838, "dimension": 7, "crit1": 192, "crit2": 360, "num_vars": 7, "num_equations": 0, "basis_size": 27, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

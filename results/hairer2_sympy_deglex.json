@@ -1,0 +1,1 @@
+{"test": "hairer2", "method": "sympy", "order": "deglex", "time": 1241.52, "dimension": 13, "num_vars": 13, "num_equations": 11, "basis_size": 129, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

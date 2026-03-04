@@ -1,0 +1,1 @@
+{"test": "speer", "method": "sympy", "order": "deglex", "time": 143.714, "dimension": 6, "num_vars": 6, "num_equations": 4, "basis_size": 69, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

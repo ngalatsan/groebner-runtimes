@@ -1,0 +1,1 @@
+{"test": "extcyc4", "method": "sympy", "order": "deglex", "time": 0.398, "dimension": 5, "num_vars": 5, "num_equations": 5, "basis_size": 28, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}

@@ -1,0 +1,1 @@
+{"test": "hf744", "method": "sympy", "order": "deglex", "time": 491.954, "dimension": 13, "num_vars": 13, "num_equations": 12, "basis_size": 238, "avr_memory": 0.0, "max_memory": 0.0, "mem_per_sec": 0.0, "mode": "clean", "status": "ok"}
