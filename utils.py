@@ -53,7 +53,7 @@ def save_summary(results, summary_path='summary_table.csv'):
     # Желаемый порядок столбцов
     desired_order = [
         'test', 'method', 'order', 'time', 'dimension',
-        'num_vars', 'num_equations', 'basis_size',
+        'num_vars', 'basis_size',
         'avr_memory', 'max_memory', 'mem_per_sec',
         'crit1', 'crit2', 'error', 'mode', 'status'
     ]
