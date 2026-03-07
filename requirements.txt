@@ -4,5 +4,6 @@ memory_profiler
 numpy
 pandas
 matplotlib
+seaborn
 
 
