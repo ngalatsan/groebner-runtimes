@@ -1,0 +1,11 @@
+test;method;order;time;dimension;crit1;crit2;num_vars;num_equations;basis_size;avr_memory;max_memory;mem_per_sec;mode
+boon;ginv;deglex;7,519;6;0,000;0,000;6;0;;101,990;101,990;13,560;memory
+boon;sympy;deglex;2,131;6;;;6;6;11,000;104,150;104,150;48,870;memory
+chandra5;ginv;deglex;1,320;5;59,000;42,000;5;0;16,000;104,710;105,270;79,740;memory
+chandra5;sympy;deglex;2,081;5;;;5;5;16,000;105,300;105,310;50,600;memory
+caprasse;ginv;deglex;6,852;4;0,000;0,000;4;0;;105,500;105,500;15,400;memory
+caprasse;sympy;deglex;2,260;4;;;4;4;27,000;105,500;105,500;46,680;memory
+issac97;ginv;deglex;1,297;4;25,000;18,000;4;0;12,000;105,620;105,780;81,560;memory
+issac97;sympy;deglex;2,300;4;;;4;4;15,000;105,780;105,780;45,990;memory
+hcyclic5;ginv;deglex;1,456;6;89,000;529,000;6;0;38,000;105,970;106,120;72,880;memory
+hcyclic5;sympy;deglex;1,477;6;;;6;5;43,000;106,120;106,120;71,870;memory
